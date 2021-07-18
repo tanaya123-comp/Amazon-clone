@@ -1,0 +1,24 @@
+.home__row{
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+
+.home__container{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYJ81ESE6f8WwdLEXLtRTjNmZAKNP993Qq4peTtMpwnfaHI86--lttHxyFpbNvQjsRX_8&usqp=CAU");
+  background-size: contain;
+  width: 100%;
+  height: 300px;
+
+
+}
+
+.home_products{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
