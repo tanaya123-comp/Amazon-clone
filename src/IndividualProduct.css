@@ -1,0 +1,32 @@
+.individualProduct{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+}
+
+.individualProduct__productImg{
+    max-height:50vh;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.individualProduct__productDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 200px;
+}
+
+.individualProduct__addToBasket{
+    background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border:1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29 ;
+    color:#111;
+}

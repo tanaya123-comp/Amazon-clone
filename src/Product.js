@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link,useHistory} from 'react-router-dom';
 import "./Product.css";
 import StarIcon from '@material-ui/icons/Star';
 import { useStateValue } from './StateProvider';
@@ -7,6 +8,7 @@ function Product({title,image,price,rating,id}) {
 
     //to pull value
     const [{basket},dispatch]=useStateValue();
+    const history=useHistory();
 
   //  console.log('this is the basket',basket);
 
@@ -44,8 +46,13 @@ function Product({title,image,price,rating,id}) {
 
                 </div>
                 
+
+                <Link to={`/IndividualProduct/${id}`}>
+               
                 <img className="product__image" src={image} alt="the woman in the window"/>
-                <button onClick={addToBasket}>Add To Basket</button>
+                <button onClick={()=>history.push('/orders')}>View Product</button>
+
+                </Link>
 
           
            

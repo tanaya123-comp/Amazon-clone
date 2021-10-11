@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './Login.css';
 import {Link,useHistory} from "react-router-dom";
-import {auth} from './Firebase';
+import {auth,db} from './Firebase';
 
 function Login() {
     const history=useHistory();
@@ -14,22 +14,38 @@ function Login() {
         auth.signInWithEmailAndPassword(email,password)
         .then(auth=>{
             history.push('/');
-        }).catch(error=>alert(error.message));
+        }).catch(error=>alert(error.message+" "+"in error"));
     }
 
     const register=(e)=>{
         e.preventDefault();
         auth.createUserWithEmailAndPassword(email,password)
         .then((auth)=>{
-            console.log(auth);
+          //  console.log(auth);
+          db.collection("Users").add({
+            email:email,
+            password:password,
+            address:null,
+        }).then((docRef)=>{
+            console.log(docRef);
+        }).catch((error)=>{
+            console.log(error);
+        })
+
             if(auth)
             {
                 history.push('/');
             }
         }).catch(error=>alert(error.message))
 
+        
+
 
     }
+
+    const handlePassword=()=>{
+
+    };
     
 
     return (
@@ -45,6 +61,7 @@ function Login() {
                     <h5>Password</h5>
                     <input type="password" value={password} onChange={e=>setPassword(e.target.value)}/>
                     <button type="submit" onClick={signIn} className="login__signInButton">Sign In</button>
+                    <button className="login__signInButton" onClick={handlePassword}>Forget Password?</button>
                 </form>
                 <p>
                 We maintain physical, 
